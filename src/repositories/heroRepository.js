@@ -24,6 +24,11 @@ class HeroRepository {
 
         return data.id;
     }
+
+    async update(data, id) {
+        const currentFile = await this._currentFileContent();
+        
+    }
 }
 
 module.exports = HeroRepository;
