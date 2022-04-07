@@ -13,6 +13,14 @@ class HeroService {
     async create(data) {
         return this.heroRepository.create(data)
     }
+
+    async update(data, itemId) {
+        return this.heroRepository.update(data, itemId)
+    }
+
+    async delete(itemId) {
+        return this.heroRepository.delete(itemId)
+    }
 }
 
 

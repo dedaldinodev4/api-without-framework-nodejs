@@ -1,7 +1,7 @@
 
 
 class Hero {
-    constructor({ id, name, age, power}) {
+    constructor({ name, age, power}) {
         this.id = Math.floor(Math.random() * 100) + Date.now()
         this.name = name;
         this.age = age;

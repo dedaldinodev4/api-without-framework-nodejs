@@ -17,5 +17,3 @@ const generateInstance = () => {
 }
 
 module.exports = { generateInstance }
-
-// generateInstance().find().then(console.log);
