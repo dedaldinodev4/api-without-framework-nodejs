@@ -1,11 +1,12 @@
 
 
-class Hero {
-    constructor({ name, age, power}) {
+class Movie {
+    constructor({ title, category, writter }) {
         this.id = Math.floor(Math.random() * 100) + Date.now()
-        this.name = name;
-        this.age = age;
-        this.power = power;
+        this.title = title;
+        this.category = category;
+        this.writter = writter
+        this.created_at = new Date()
     }
 
     isValid() {
@@ -24,8 +25,12 @@ class Hero {
     }
 }
 
-module.exports = Hero;
+module.exports = Movie;
 
-// const hero = new Hero({ name: 'Chapolin', age: 100, power: 'Super Força'});
-// console.log('valid', hero.isValid());
-// console.log('valid', hero);
+// const movie = new Movie({
+//     title: 'Tenet',
+//     category: 'Ficção',
+//     writter: 'Christopher Nolan'
+// })
+
+// console.log(movie);

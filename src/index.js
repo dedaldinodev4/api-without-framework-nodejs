@@ -1,7 +1,7 @@
 
 const http = require('http');
 const _PORT = 3000
-const routes = require('./routes/heroRoutes');
+const routes = require('./routes');
 const handleError = require('./errors/handlerError');
 
 

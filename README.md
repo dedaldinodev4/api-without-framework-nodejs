@@ -32,12 +32,12 @@ Start the server / Iniciar o servidor
 
 Use project / Usar o projecto
 
-### Heroes Route
+### Movie Route
 
-| Description     |                URL                  | Method  |
-| --------------- |:-----------------------------------:| -------:|
-| Get List Hero   | http://localhost:3000/heroes        | GET     |
-| Create Hero     | http://localhost:3000/heroes        | POST    |
-| Get a Hero      | http://localhost:3000/heroes/:heroId| GET     |
-| Update a Hero   | http://localhost:3000/heroes/:heroId| PUT     |
-| Delete a Hero   | http://localhost:3000/heroes/:heroId| DELETE  |
+| Description     |                URL               | Method  |
+| --------------- |:--------------------------------:| -------:|
+| Get List Movie  | http://localhost:3000/movies     | GET     |
+| Create Movie    | http://localhost:3000/movies     | POST    |
+| Get a Movie     | http://localhost:3000/movies/:id | GET     |
+| Update a Movie  | http://localhost:3000/movies/:id | PUT     |
+| Delete a Movie  | http://localhost:3000/movies/:id | DELETE  |

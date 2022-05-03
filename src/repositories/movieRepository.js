@@ -1,6 +1,6 @@
 const { readFile, writeFile } = require('fs/promises');
 
-class HeroRepository {
+class MovieRepository {
     constructor({ file }) {
         this.file = file;
     }
@@ -9,21 +9,21 @@ class HeroRepository {
         return JSON.parse( await readFile(this.file));
     }
 
-    async find(itemId) {
+    async find(movieId) {
         const all = await this._currentFileContent();
-        if (!itemId) return {
-            totalHeroes: all.length,
+        if (!movieId) return {
+            totalMovies: all.length,
             data: all
         }
 
-        return all.find(({ id }) => itemId === id);
+        return all.find(({ id }) => movieId === id);
     }
 
     async create(data) {
         const currentFile = await this._currentFileContent();
 
-        if( currentFile.find(({ name }) => name === data.name)) {
-            return { message: 'Hero Already exists!'}
+        if( currentFile.find(({ title }) => title === data.title)) {
+            return { message: 'Movie Already exists!'}
         }
         currentFile.push(data);
 
@@ -32,17 +32,17 @@ class HeroRepository {
         return data;
     }
 
-    async update(data, itemId) {
+    async update(data, movieId) {
         const all = await this._currentFileContent();
 
-        if (!itemId) return null; //* Quando o id não é um valor válido *//
+        if (!movieId) return null; //* Quando o id não é um valor válido *//
 
-        if (all.find(({ id }) => id === itemId)) {
+        if (all.find(({ id }) => id === movieId)) {
             const newArr = all.filter(function(item) {
-                return item.id !== itemId
+                return item.id !== movieId
             })
             data = {
-                id: itemId,
+                id: movieId,
                 ...data                
             }
             newArr.push(data);
@@ -51,32 +51,32 @@ class HeroRepository {
         } 
 
         return {
-            message: "Hero doesn't exists!"
+            message: "Movie doesn't exists!"
         }
         
     }
 
-    async delete(itemId) {
+    async delete(movieId) {
         const all = await this._currentFileContent();
 
-        if (!itemId) return null; //* Quando o id não é um valor válido *//
+        if (!movieId) return null; //* Quando o id não é um valor válido *//
 
-        if (all.find(({ id }) => id === itemId)) {
+        if (all.find(({ id }) => id === movieId)) {
             const newArr = all.filter(function(item) {
-                return item.id !== itemId
+                return item.id !== movieId
             })
     
             await writeFile(this.file, JSON.stringify(newArr));
             return {
-                message: 'Hero deleted successful!'
+                message: 'Movie deleted successful!'
             };
         } 
         return {
-            message: "Hero doesn't exists!"
+            message: "Movie doesn't exists!"
         }
         
     }
 }
 
-module.exports = HeroRepository;
+module.exports = MovieRepository;
  
